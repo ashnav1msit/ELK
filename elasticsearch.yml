@@ -1,0 +1,53 @@
+#
+# The primary way of configuring a node is via this file. This template lists
+# the most important settings you may want to configure for a production cluster.
+#
+# Please consult the documentation for further information on configuration options:
+# https://www.elastic.co/guide/en/elasticsearch/reference/index.html
+#
+# ---------------------------------- Cluster -----------------------------------
+#
+# Use a descriptive name for your cluster:
+#
+
+cluster.name: xx-xx-xx
+
+xpack.security.enabled: false
+
+# Added Jan 18, AJP
+http.cors.enabled:      true
+http.cors.allow-origin: .*
+
+# Added 12Jun2017 AJP
+#
+bootstrap.memory_lock: true
+
+# Added 23Nov2017
+#
+path.logs: /var/log/elasticsearch
+path.data: /var/lib/elasticsearch
+
+#path.conf: /etc/elasticsearch
+
+thread_pool.bulk.queue_size: 5000
+thread_pool.search.queue_size: 5000
+thread_pool:
+   index:
+      size: 5
+
+
+# Added 07Jul2017
+#
+bootstrap.system_call_filter: false
+
+# Set the bind address to a specific IP (IPv4 or IPv6):
+#
+network.host: xx.xx.xx.xx, 127.0.0.1
+
+# Let anyone do anything
+#
+#xpack.security.authc:
+#  anonymous:
+#    username: _es_anonymous_user
+#    roles: superuser
+#    authz_exception: true
